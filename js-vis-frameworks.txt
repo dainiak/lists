@@ -1,0 +1,14 @@
+https://gephi.org/
+Она одновременно позволяет и нарисовать граф, и посчитать для него важные характеристики. Вот здесь альтернативная программа для расчёта графов: http://mrvar.fdv.uni-lj.si/pajek/
+
+Для отрисовки графов и других вещей подойдёт одна из следующих библиотек:
+https://d3js.org/
+http://dimplejs.org/
+
+http://sigmajs.org/
+http://getspringy.com/
+http://js.cytoscape.org/
+
+http://philogb.github.io/jit/
+http://visjs.org/
+По алгоритму t-SNE есть замечательная визуализация на яваскрипте: http://distill.pub/2016/misread-tsne/
