@@ -84,7 +84,7 @@ var frameworksJSON = [
   },
   {
     "demo": "http://jmpressjs.github.io/jmpress.js",
-    "desc_ru": "Этот движок является переложением <span class='fwk-name'>impress.js</span> на JavaScript.",
+    "desc_ru": "Этот движок является переложением <span class='crossref'>impress.js</span> на JavaScript.",
     "name": "jmpress.js",
     "src": "https://github.com/jmpressjs/jmpress.js"
   },
@@ -102,7 +102,7 @@ var frameworksJSON = [
   },
   {
     "demo": "http://flowtime-js.marcolago.com",
-    "desc_ru": "Клон движка <span class='fwk-name'>reveal.js</span>, лежащий в основе сервиса <a href='http://www.slidecaptain.com/'>SlideCaptain</a>",
+    "desc_ru": "Клон движка <span class='crossref'>reveal.js</span>, лежащий в основе сервиса <a href='http://www.slidecaptain.com/'>SlideCaptain</a>",
     "name": "Flowtime.js",
     "src": "https://github.com/marcolago/flowtime.js"
   },
@@ -292,6 +292,18 @@ $(function(){
                 queryEvent: 'blur change keyup'
             }
         });
+
+    $('span.crossref').each(function(i,e){
+        var $e = $(e);
+        var txt = e.textContent.trim().toLowerCase();
+        $e.wrap('<a></a>').click(function(evt){
+            $('td.name').each(function (j,td) {
+                if(td.textContent.trim().toLowerCase() == txt) {
+                    td.scrollIntoView();
+                }
+            });
+        });
+    });
 });
 
 </script>
@@ -312,6 +324,10 @@ $(function(){
     #tblframeworks td.demo, #tblframeworks td.src {
         vertical-align: middle;
         text-align: center;
+    }
+
+    .kathy-sierra-quote {
+        font-size: 85%;
     }
 
     @media print {
