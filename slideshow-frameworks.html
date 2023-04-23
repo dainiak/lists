@@ -145,6 +145,43 @@
   </script>
 
   <style>
+    .social-share {
+      position: absolute;
+      vertical-align: top;
+      top: 0;
+      right: 0;
+      border: 0;
+      z-index: 10000;
+    }
+
+    .social-share .ribbon-container {
+      position: absolute;
+      top: 0;
+      right: 0;
+      overflow: hidden;
+      width: 140px;
+      height: 140px;
+    }
+
+    .social-share .ribbon {
+      width: 200px;
+      text-align: center;
+      position: absolute;
+      background: gray;
+      border-top: black dashed 2px;
+      border-bottom: black dashed 2px;
+      color: whitesmoke;
+      top: 45px;
+      right: -45px;
+      z-index: 10000;
+      transform: rotate(45deg);
+    }
+
+    .social-share .ribbon a {
+      text-decoration: none;
+      color: whitesmoke;
+    }
+
     #tblframeworks .desc a:not(.btn) {
       color: inherit;
       border-bottom: 2px cadetblue dotted;
@@ -187,8 +224,13 @@
 
 
 <body>
+<div class="social-share print-hide">
+  <div class="ribbon-container">
+    <div class="ribbon"><a href="https://github.com/dainiak/lists">Contribute on GitHub</a></div>
+  </div>
+</div>
 <div class="container fluid">
-  <blockquote><p class="kathy-sierra-quote"></p><footer><a href="http://seriouspony.com/blog/2013/10/4/presentation-skills-considered-harmful">Kathy Sierra</a></footer>
+  <blockquote class="print-hide"><p class="kathy-sierra-quote"></p><footer><a href="http://seriouspony.com/blog/2013/10/4/presentation-skills-considered-harmful">Kathy Sierra</a></footer>
   </blockquote>
   <div class="input-group print-hide">
     <span class="input-group-addon search-field">Search: </span>
@@ -207,7 +249,7 @@
     </tbody>
   </table>
 </div>
-<footer class="footer"><div class="container"><span class="maintained-by"></span> <span class="contributor-credits"></span> <a href="https://github.com/taery">Anastasia Lavrenko</a>, Viktor Petukhov. <span class="powered-by"></span> <a href="https://github.com/alfajango/jquery-dynatable">DynaTable</a>, <a href="https://jquery.com/">jQuery</a>, <a href="https://getbootstrap.com/">Bootstrap</a>, <a href="http://fontawesome.io/">Font Awesome</a>.</div></footer>
+<footer class="footer"><div class="container"><span class="maintained-by"></span> <span class="contributor-credits"></span> <a href="https://github.com/taery">Anastasia Lavrenko</a>, Viktor Petukhov. <span class="print-hide"><span class="powered-by"></span> <a href="https://github.com/alfajango/jquery-dynatable">DynaTable</a>, <a href="https://jquery.com/">jQuery</a>, <a href="https://getbootstrap.com/">Bootstrap</a>, <a href="http://fontawesome.io/">Font Awesome</a>.</span></div></footer>
 </body>
 
 </html>
