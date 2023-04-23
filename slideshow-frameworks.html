@@ -1,21 +1,21 @@
-<html lang="ru">
+<html>
 <head>
-<meta charset="utf-8">
-<title>List of HTML/CSS/JS Presentation Frameworks</title>
+  <meta charset="utf-8">
+  <title>List of HTML/CSS/JS Presentation Frameworks</title>
 
-<link rel="author" href="https://www.dainiak.com"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap-theme.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  <link rel="author" href="https://www.dainiak.com"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap-theme.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.min.js"></script>
 
 
-<script type="text/javascript">
-let l10nAll = {
-    'en': {
+  <script type="text/javascript">
+    let l10nAll = {
+      'en': {
         'title': 'List of HTML/CSS/JS Presentation Frameworks',
         'col-name': 'Framework',
         'col-demo': 'Demo',
@@ -28,8 +28,8 @@ let l10nAll = {
         'maintained-by': 'This list is maintained by <a href="https://www.dainiak.com" rel="author">Alex Dainiak</a> and contributors.',
         'kathy-sierra-quote': '…since I’m a software developer, I’ll think of the audience as my users. And if they’re my users, then this presentation is a user experience. And if it’s a user experience, then what am I? … I am just a UI … nothing more. And what’s a key attribute of a good UI? It disappears. It does not draw attention to itself. It enables the user experience, but is not itself the experience.',
         'contributor-credits': 'The list benefited much from the contributions by '
-    },
-    'ru': {
+      },
+      'ru': {
         'title': 'Каталог HTML/CSS/JS-движков для создания презентаций',
         'col-name': 'Движок',
         'col-demo': 'Демонстрация/сайт',
@@ -38,163 +38,176 @@ let l10nAll = {
         'col-desc': 'Описание',
         'search-field': 'Поиск',
         'search-field-placeholder': 'начните вводить запрос',
-        'powered-by': 'На странице использованы технологии',
-        'maintained-by': 'Список поддерживается и обновляется <a href="https://www.dainiak.com" rel="author">Александром Дайняком</a> и соавторами.',
-        'kathy-sierra-quote': '… я разработчик, поэтому я представляю себе свою аудиторию в качестве пользователей. А раз они мои пользователи, то сама презентация — это пользовательский опыт. А раз это пользовательский опыт, то кто я такая? … Я просто интерфейс … ничего более. А каково главное качество хорошего интерфейса? Он невидим. Он не притягивает внимание к себе. Он позволяет пользователю получить опыт взаимодействия, но сам по себе этим опытом не является.',
+        'powered-by': 'На странице использованы библиотеки ',
+        'maintained-by': 'Список скомпилирован и поддерживается <a href="https://www.dainiak.com" rel="author">Александром Дайняком</a> и соучастниками.',
+        'kathy-sierra-quote': '… я разработчик, поэтому представляю себе свою аудиторию в качестве <em>пользователей</em>. А раз они мои пользователи, то моя <em>презентация — пользовательский опыт</em>. А раз это пользовательский опыт, то кто я такая? … Я интерфейс … не более. А что главное в хорошем интерфейсе? Он «прозрачен». Он не притягивает внимание к себе. Он позволяет пользователю <em>получить опыт взаимодействия</em>, но сам по себе этим <em>опытом не является</em>.',
         'contributor-credits': 'Большую помощь в пополнении списка и описаний оказали '
-    }
-};
+      }
+    };
 
-$(function(){
-    $.getJSON( "slideshow-frameworks.json", function(frameworksJSON) {
+    $(function(){
+      $.getJSON( "slideshow-frameworks.json", function(frameworksJSON) {
         function localize(language) {
-            let l10n = l10nAll[language];
-            for (let i = 0; i < frameworksJSON.length; ++i) {
-                frameworksJSON[i]['desc'] = frameworksJSON[i]['desc_' + language];
-            }
+          let l10n = l10nAll[language];
+          for (let record of frameworksJSON)
+            record['desc'] = record['desc_' + language];
 
-            document.title = l10n['title'];
+          document.title = l10n['title'];
 
-            for(let col of ["name", "demo", "src", "lastupdate", "desc"])
-                $('[data-dynatable-column="' + col + '"]').text(l10n['col-' + col]);
+          for(let col of ["name", "demo", "src", "lastupdate", "desc"])
+            $('[data-dynatable-column="' + col + '"]').text(l10n['col-' + col]);
 
-            for(let p in l10n)
-                $('.' + p).html(l10n[p]);
+          for(let p in l10n)
+            $('.' + p).html(l10n[p]);
 
-            document.getElementById('searchField').setAttribute('placeholder', l10n['search-field-placeholder']);
+          document.getElementById('searchField').setAttribute('placeholder', l10n['search-field-placeholder']);
         }
 
         localize(navigator.languages.indexOf('ru') >= 0 ? 'ru' : 'en');
 
-        $('#tblframeworks')
-            .bind('dynatable:init', function (e, dynatable) {
-                dynatable.queries.functions['name'] = function (record, queryValue) {
-                    let r = new RegExp(queryValue, 'i');
-                    return (record.name.match(r) || record.desc.match(r));
-                };
-            })
-            .dynatable({
-                dataset: {
-                    records: frameworksJSON,
-                    sorts: {'name': 1}
-                },
-                writers: {
-                    _cellWriter: function (column, record) {
-                        let result = '<td class="' + column.id + '">';
-                        let value = record[column.id];
-                        if (column.id === 'src') {
-                            if(value)
-                                result += '<a class="btn btn-default print-hide" href="'
-                                    + value
-                                    + '"><i class="fa fa-' + (value.match(/github\./) ? 'github' : 'code')
-                                    + '" aria-hidden="true"></i></a><span class="print-only">'
-                                    + value + '</span>'
-                            else
-                                result += '<i class="fa fa-times" aria-hidden="true"></i>';
-                        }
-                        else if (column.id === 'demo') {
-                            if(value)
-                                result +=
-                                    '<a class="btn btn-default print-hide" href="'
-                                    + value
-                                    + '"><i class="fa fa-television" aria-hidden="true"></i></a><span class="print-only">'
-                                    + value
-                                    + '</span>'
-                            else
-                                result += '<i class="fa fa-times" aria-hidden="true"></i>';
-                        }
-                        else
-                            result += value;
-                        result += '</td>';
-                        return result;
-                    }
-                },
-                features: {
-                    paginate: false,
-                    recordCount: false,
-                    sort: true,
-                    search: false
-                },
-                inputs: {
-                    queries: $('#searchField'),
-                    queryEvent: 'blur change keyup'
-                }
-            });
+        $(
+          '#tblframeworks'
+        ).bind(
+          'dynatable:init',
+          function (e, dynatable) {
+            dynatable.queries.functions['name'] = function (record, queryValue) {
+              let r = new RegExp(queryValue, 'i');
+              return (record.name.match(r) || record.desc.match(r) || record.lastupdate.match(r));
+            };
+          })
+        .dynatable({
+          dataset: {
+            records: frameworksJSON,
+            sorts: {'name': 1}
+          },
+          writers: {
+            _cellWriter: function (column, record) {
+              let result = '<td class="' + column.id + '">';
+              let value = record[column.id];
+              if (column.id === 'src') {
+                if(value)
+                  result += '<a class="btn btn-default print-hide" href="'
+                          + value
+                          + '"><i class="fa fa-' + (value.match(/github\./) ? 'github' : 'code')
+                          + '" aria-hidden="true"></i></a><span class="print-only">'
+                          + value + '</span>'
+                else
+                  result += '<i class="fa fa-times" aria-hidden="true"></i>';
+              }
+              else if (column.id === 'demo') {
+                if(value)
+                  result +=
+                          '<a class="btn btn-default print-hide" href="'
+                          + value
+                          + '"><i class="fa fa-television" aria-hidden="true"></i></a><span class="print-only">'
+                          + value
+                          + '</span>'
+                else
+                  result += '<i class="fa fa-times" aria-hidden="true"></i>';
+              }
+              else if (column.id === 'rating') {
+                if(value)
+                  result += '<i class="fa fa-star" aria-hidden="true"></i>'.repeat(parseInt(value));
+                else
+                  result += '';
+              }
+              else
+                result += value;
+              result += '</td>';
+              return result;
+            }
+          },
+          features: {
+            paginate: false,
+            recordCount: false,
+            sort: true,
+            search: false
+          },
+          inputs: {
+            queries: $('#searchField'),
+            queryEvent: 'blur change keyup'
+          }
+        });
 
         $('span.crossref').each(function (i, e) {
-            let $e = $(e);
-            let txt = e.textContent.trim().toLowerCase();
-            $e.wrap('<a></a>').click(function (evt) {
-                $('td.name').each(function (j, td) {
-                    if (td.textContent.trim().toLowerCase() === txt)
-                        td.scrollIntoView();
-                });
+          let $e = $(e);
+          let txt = e.textContent.trim().toLowerCase();
+          $e.wrap('<a></a>').click(function () {
+            $('td.name').each(function (j, td) {
+              if (td.textContent.trim().toLowerCase() === txt)
+                td.scrollIntoView();
             });
+          });
         });
+      });
     });
-});
 
-</script>
+  </script>
 
-<style>
+  <style>
     #tblframeworks .desc a:not(.btn) {
-        color: inherit;
-        border-bottom: 2px cadetblue dotted;
-        text-decoration: inherit;
+      color: inherit;
+      border-bottom: 2px cadetblue dotted;
+      text-decoration: inherit;
     }
 
     #tblframeworks .desc a:hover:not(.btn) {
-        color: inherit;
-        border-bottom: 2px cadetblue dotted;
-        text-decoration: inherit;
-        background-color: darkgrey;
+      color: inherit;
+      border-bottom: 2px cadetblue dotted;
+      text-decoration: inherit;
+      background-color: darkgrey;
     }
-    #tblframeworks td.demo, #tblframeworks td.src {
-        vertical-align: middle;
-        text-align: center;
+    #tblframeworks td.demo, #tblframeworks td.src, #tblframeworks td.lastupdate, #tblframeworks td.rating {
+      vertical-align: middle;
+      text-align: center;
+    }
+
+    #tblframeworks td.name {
+      vertical-align: middle;
     }
 
     .kathy-sierra-quote {
-        font-size: 85%;
+      font-size: 85%;
     }
 
     @media print {
-        .print-hide {
-            display: none;
-        }
+      .print-hide {
+        display: none;
+      }
     }
 
     @media screen {
-        .print-only {
-            display: none;
-        }
+      .print-only {
+        display: none;
+      }
     }
-</style>
-
-
+  </style>
 
 </head>
+
+
 <body>
 <div class="container fluid">
-<blockquote><p class="kathy-sierra-quote"></p><footer><a href="http://seriouspony.com/blog/2013/10/4/presentation-skills-considered-harmful">Kathy Sierra</a></footer>
-</blockquote>
-<div class="input-group print-hide">
+  <blockquote><p class="kathy-sierra-quote"></p><footer><a href="http://seriouspony.com/blog/2013/10/4/presentation-skills-considered-harmful">Kathy Sierra</a></footer>
+  </blockquote>
+  <div class="input-group print-hide">
     <span class="input-group-addon search-field">Search: </span>
     <input type="text" class="form-control" id="searchField" name="name" placeholder="start typing here...">
+  </div>
+  <table id="tblframeworks" class = "table table-striped table-bordered">
+    <thead>
+    <th data-dynatable-column="name">Framework</th>
+    <th data-dynatable-column="demo">Demo</th>
+    <th data-dynatable-column="src">Source</th>
+    <th data-dynatable-column="lastupdate">Last Updated</th>
+    <th data-dynatable-column="rating">Rating</th>
+    <th data-dynatable-column="desc" data-dynatable-no-sort="true">Description</th>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
 </div>
-<table id="tblframeworks" class = "table table-striped table-bordered">
-  <thead>
-    <td data-dynatable-column="name">Framework</td>
-    <td data-dynatable-column="demo">Demo</td>
-    <td data-dynatable-column="src">Source</td>
-    <td data-dynatable-column="lastupdate">Last Updated</td>
-    <td data-dynatable-column="desc" data-dynatable-no-sort="true">Description</td>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
-</div>
-<footer class="footer"><div class="container"><span class="maintained-by"></span> <span class="contributor-credits"></span> <a href="https://github.com/taery">Anastasia Lavrenko</a>, Viktor Petukhov. <span class="powered-by"></span> <a href="https://github.com/alfajango/jquery-dynatable">DynaTable</a>, <a href="http://jquery.com/">jQuery</a>, <a href="http://getbootstrap.com/">Bootstrap</a>, <a href="http://fontawesome.io/">Font Awesome</a>.</div></footer>
+<footer class="footer"><div class="container"><span class="maintained-by"></span> <span class="contributor-credits"></span> <a href="https://github.com/taery">Anastasia Lavrenko</a>, Viktor Petukhov. <span class="powered-by"></span> <a href="https://github.com/alfajango/jquery-dynatable">DynaTable</a>, <a href="https://jquery.com/">jQuery</a>, <a href="https://getbootstrap.com/">Bootstrap</a>, <a href="http://fontawesome.io/">Font Awesome</a>.</div></footer>
 </body>
 
 </html>

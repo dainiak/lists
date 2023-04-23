@@ -5,7 +5,8 @@
     "desc_en": "One of the most fully-featured and actively developed frameworks. Powers <a href='https://slides.com/'>Slides.com</a>. The API is good, and there are many plugins available, see <a href='https://github.com/hakimel/reveal.js/wiki/Plugins,-Tools-and-Hardware'>достаточно много</a>.",
     "name": "Reveal.js",
     "src": "https://github.com/hakimel/reveal.js",
-    "lastupdate": "2023-04"
+    "lastupdate": "2023-04",
+    "rating": 3
   },
   {
     "demo": "https://gnab.github.io/remark",
@@ -13,7 +14,8 @@
     "desc_en": "Allows to typeset slides in <a href='https://daringfireball.net/projects/markdown/'>Markdown</a>.",
     "name": "remark",
     "src": "https://github.com/gnab/remark",
-    "lastupdate": "2020-01"
+    "lastupdate": "2020-01",
+    "rating": 1
   },
   {
     "demo": "http://imakewebthings.com/deck.js",
@@ -21,7 +23,8 @@
     "desc_en": "",
     "name": "Deck.js",
     "src": "https://github.com/imakewebthings/deck.js",
-    "lastupdate": "2016-05"
+    "lastupdate": "2016-05",
+    "rating": 3
   },
   {
     "demo": "https://impress.github.io/impress.js",
@@ -29,7 +32,8 @@
     "desc_en": "The content may be positioned in 2D and even 3D space and navigated using CSS transitions. The style of the resulting presentations resembles that of <a href=\"https://prezi.com/\">Prezi</a>.",
     "name": "impress.js",
     "src": "https://github.com/impress/impress.js",
-    "lastupdate": "2023-02"
+    "lastupdate": "2023-02",
+    "rating": 3
   },
   {
     "demo": "https://bmcmurray.github.io/hekyll/preso.html",
@@ -37,7 +41,8 @@
     "desc_en": "This is an <span class=\"crossref\">impress.js</span>-based tool which uses <a href=\"https://github.com/jekyll/jekyll\">Jekyll</a> as an intermediate tool to typeset the slides.",
     "name": "Hekyll",
     "src": "https://github.com/bmcmurray/hekyll",
-    "lastupdate": "2015-02"
+    "lastupdate": "2015-02",
+    "rating": 1
   },
   {
     "demo": "https://inspirejs.org/",
@@ -45,7 +50,8 @@
     "desc_en": "",
     "name": "Inspire.js",
     "src": "https://github.com/LeaVerou/inspire.js",
-    "lastupdate": "2023-02"
+    "lastupdate": "2023-02",
+    "rating": 2
   },
   {
     "demo": "https://meyerweb.com/eric/tools/s5/s5-intro.html",
@@ -53,7 +59,8 @@
     "desc_en": "",
     "name": "S5",
     "src": "https://meyerweb.com/eric/tools/s5/",
-    "lastupdate": "2006-02"
+    "lastupdate": "2006-02",
+    "rating": 1
   },
   {
     "demo": "https://paulrouget.com/slides/dzslides-introduction.html",
@@ -61,7 +68,8 @@
     "desc_en": "",
     "name": "DZSlides",
     "src": "https://github.com/paulrouget/dzslides",
-    "lastupdate": "2017-10"
+    "lastupdate": "2017-10",
+    "rating": 1
   },
   {
     "demo": "https://landslide-python.netlify.app/",
@@ -69,7 +77,8 @@
     "desc_en": "",
     "name": "landslide",
     "src": "https://github.com/adamzap/landslide",
-    "lastupdate": "2023-03"
+    "lastupdate": "2023-03",
+    "rating": 1
   },
   {
     "demo": "https://markdalgleish.com/projects/bespoke.js/",
@@ -77,7 +86,8 @@
     "desc_en": "",
     "name": "Bespoke.js",
     "src": "https://github.com/bespokejs/bespoke",
-    "lastupdate": "2018-01"
+    "lastupdate": "2018-01",
+    "rating": 1
   },
   {
     "demo": "http://www.briancavalier.com/code/slides/",
@@ -85,7 +95,8 @@
     "desc_en": "",
     "name": "slides",
     "src": "https://github.com/briancavalier/slides",
-    "lastupdate": "2016-07"
+    "lastupdate": "2016-07",
+    "rating": 1
   },
   {
     "demo": "https://sli.dev/",
@@ -93,7 +104,8 @@
     "desc_en": "",
     "name": "SliDev",
     "src": "https://github.com/slidevjs/slidev",
-    "lastupdate": "2023-05"
+    "lastupdate": "2023-05",
+    "rating": 3
   },
   {
     "demo": "https://www.youtube.com/watch?v=WRvECXyWj80",
@@ -101,7 +113,8 @@
     "desc_en": "",
     "name": "Google IO Slides template",
     "src": "https://github.com/francescolaffi/elastic-google-io-slides",
-    "lastupdate": "2013-11"
+    "lastupdate": "2013-11",
+    "rating": 1
   },
   {
     "demo": "https://shwr.me/#cover",
@@ -109,7 +122,8 @@
     "desc_en": "",
     "name": "Shower",
     "src": "https://github.com/shower/shower",
-    "lastupdate": "2021-10"
+    "lastupdate": "2021-10",
+    "rating": 2
   },
   {
     "demo": "https://marcolago.github.io/flowtime.js/",
@@ -117,7 +131,8 @@
     "desc_en": "",
     "name": "Flowtime.js",
     "src": "https://github.com/marcolago/flowtime.js",
-    "lastupdate": "2022-12"
+    "lastupdate": "2022-12",
+    "rating": 2
   },
   {
     "demo": "https://ondras.zarovi.cz/slides/",
@@ -125,7 +140,8 @@
     "desc_en": "",
     "name": "jsslides",
     "src": "https://code.google.com/archive/p/jsslides/",
-    "lastupdate": "2016-03"
+    "lastupdate": "2016-03",
+    "rating": 1
   },
   {
     "demo": "",
@@ -133,7 +149,8 @@
     "desc_en": "",
     "name": "Slippy",
     "src": "https://github.com/Seldaek/slippy/",
-    "lastupdate": "2018-04"
+    "lastupdate": "2018-04",
+    "rating": 1
   },
   {
     "demo": "",
@@ -141,7 +158,8 @@
     "desc_en": "",
     "name": "Shining",
     "src": "https://github.com/juliocesar/shining",
-    "lastupdate": "2011-03"
+    "lastupdate": "2011-03",
+    "rating": 1
   },
   {
     "demo": "",
@@ -149,7 +167,8 @@
     "desc_en": "",
     "name": "Slidedown",
     "src": "https://github.com/nakajima/slidedown",
-    "lastupdate": "2012-02"
+    "lastupdate": "2012-02",
+    "rating": 1
   },
   {
     "demo": "https://markdalgleish.com/projects/fathom/",
@@ -157,7 +176,8 @@
     "desc_en": "",
     "name": "Fathom.js",
     "src": "https://github.com/markdalgleish/fathom",
-    "lastupdate": "2015-08"
+    "lastupdate": "2015-08",
+    "rating": 1
   },
   {
     "demo": "",
@@ -165,7 +185,8 @@
     "desc_en": "",
     "name": "Pow",
     "src": "https://github.com/chromakode/pow",
-    "lastupdate": "2011-04"
+    "lastupdate": "2011-04",
+    "rating": 1
   },
   {
     "demo": "https://bytasv.github.io/scriptless-slides",
@@ -173,7 +194,8 @@
     "desc_en": "",
     "name": "scriptless-slides",
     "src": "https://github.com/bytasv/scriptless-slides",
-    "lastupdate": "2013-01"
+    "lastupdate": "2013-01",
+    "rating": 1
   },
   {
     "demo": "https://cykod.github.io/CoderDeck",
@@ -181,7 +203,8 @@
     "desc_en": "",
     "name": "CoderDeck",
     "src": "https://github.com/cykod/CoderDeck",
-    "lastupdate": "2012-09"
+    "lastupdate": "2012-09",
+    "rating": 1
   },
   {
     "demo": "",
@@ -189,7 +212,8 @@
     "desc_en": "",
     "name": "3D Cube Slideshow",
     "src": "https://github.com/JoeMorgan/3D-Cube-Slideshow",
-    "lastupdate": "2011-11"
+    "lastupdate": "2011-11",
+    "rating": 1
   },
   {
     "demo": "",
@@ -197,7 +221,8 @@
     "desc_en": "",
     "name": "luminescence",
     "src": "https://github.com/pmatiello/luminescence",
-    "lastupdate": "2011-07"
+    "lastupdate": "2011-07",
+    "rating": 1
   },
   {
     "demo": "https://www.w3.org/Talks/Tools/Slidy2/",
@@ -205,7 +230,8 @@
     "desc_en": "",
     "name": "Slidy2 (W3C slides toolkit)",
     "src": "https://www.w3.org/Talks/Tools/Slidy2/",
-    "lastupdate": "2005-12"
+    "lastupdate": "2005-12",
+    "rating": 1
   },
   {
     "demo": "http://layerjs.org",
@@ -213,7 +239,8 @@
     "desc_en": "",
     "name": "Layer.js",
     "src": "https://github.com/layerJS/layerJS",
-    "lastupdate": "2020-10"
+    "lastupdate": "2020-10",
+    "rating": 2
   },
   {
     "demo": "http://johnpolacek.github.io/scrolldeck.js",
@@ -221,7 +248,8 @@
     "desc_en": "",
     "name": "ScrollDeck",
     "src": "https://github.com/johnpolacek/scrolldeck.js",
-    "lastupdate": "2015-05"
+    "lastupdate": "2015-05",
+    "rating": 1
   },
   {
     "demo": "https://mbostock.github.io/stack",
@@ -229,7 +257,8 @@
     "desc_en": "",
     "name": "Stack.js",
     "src": "https://github.com/mbostock/stack",
-    "lastupdate": "2014-09"
+    "lastupdate": "2014-09",
+    "rating": 2
   },
   {
     "demo": "https://tmcw-big-demo.glitch.me/#0",
@@ -237,6 +266,7 @@
     "desc_en": "",
     "name": "big",
     "src": "https://github.com/tmcw/big",
-    "lastupdate": "2019-05"
+    "lastupdate": "2019-05",
+    "rating": 2
   }
 ]
