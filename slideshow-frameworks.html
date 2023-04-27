@@ -22,12 +22,14 @@
         'col-src': 'Source',
         'col-desc': 'Description',
         'col-lastupdate': 'Last update',
+        'col-rating': 'Rating',
         'search-field': 'Search',
         'search-field-placeholder': 'start typing here...',
         'powered-by': 'This webpage is powered by',
         'maintained-by': 'This list is maintained by <a href="https://www.dainiak.com" rel="author">Alex Dainiak</a> and contributors.',
         'kathy-sierra-quote': '…since I’m a software developer, I’ll think of the audience as my users. And if they’re my users, then this presentation is a user experience. And if it’s a user experience, then what am I? … I am just a UI … nothing more. And what’s a key attribute of a good UI? It disappears. It does not draw attention to itself. It enables the user experience, but is not itself the experience.',
-        'contributor-credits': 'The list benefited much from the contributions by '
+        'contributor-credits': 'The list benefited much from the contributions by ',
+        'githublink': 'Contribute on GitHub'
       },
       'ru': {
         'title': 'Каталог HTML/CSS/JS-движков для создания презентаций',
@@ -35,13 +37,15 @@
         'col-demo': 'Демонстрация/сайт',
         'col-src': 'Исходный код',
         'col-lastupdate': 'Обновлено',
+        'col-rating': 'Рейтинг',
         'col-desc': 'Описание',
         'search-field': 'Поиск',
         'search-field-placeholder': 'начните вводить запрос',
         'powered-by': 'На странице использованы библиотеки ',
         'maintained-by': 'Список скомпилирован и поддерживается <a href="https://www.dainiak.com" rel="author">Александром Дайняком</a> и соучастниками.',
-        'kathy-sierra-quote': '… я разработчик, поэтому представляю себе свою аудиторию в качестве <em>пользователей</em>. А раз они мои пользователи, то моя <em>презентация — пользовательский опыт</em>. А раз это пользовательский опыт, то кто я такая? … Я интерфейс … не более. А что главное в хорошем интерфейсе? Он «прозрачен». Он не притягивает внимание к себе. Он позволяет пользователю <em>получить опыт взаимодействия</em>, но сам по себе этим <em>опытом не является</em>.',
-        'contributor-credits': 'Большую помощь в пополнении списка и описаний оказали '
+        'kathy-sierra-quote': '… я разработчик, поэтому представляю себе свою аудиторию в качестве <em>пользователей</em>. А раз они мои пользователи, то моя <em>презентация — пользовательский опыт</em>. А раз это пользовательский опыт, то кто я такая? … Я интерфейс … не более. А что главное в хорошем интерфейсе? Он «прозрачен». Он не перетягивает внимание на себя. Он позволяет пользователю <em>получить опыт взаимодействия</em>, но сам по себе этим <em>опытом не является</em>.',
+        'contributor-credits': 'Большую помощь в пополнении списка и описаний оказали ',
+        'githublink': 'Есть дополнения?'
       }
     };
 
@@ -54,7 +58,7 @@
 
           document.title = l10n['title'];
 
-          for(let col of ["name", "demo", "src", "lastupdate", "desc"])
+          for(let col of ["name", "demo", "src", "lastupdate", "desc", "rating"])
             $('[data-dynatable-column="' + col + '"]').text(l10n['col-' + col]);
 
           for(let p in l10n)
@@ -63,7 +67,16 @@
           document.getElementById('searchField').setAttribute('placeholder', l10n['search-field-placeholder']);
         }
 
-        localize(navigator.languages.indexOf('ru') >= 0 ? 'ru' : 'en');
+        let currentLanguage = navigator.languages.indexOf('ru') >= 0 ? 'ru' : 'en';
+        if(window.location.hash === '#ru')
+          currentLanguage = 'ru';
+        else if (window.location.hash === '#en')
+          currentLanguage = 'en';
+        localize(currentLanguage);
+        $('img[data-language]').click(function(){
+          window.location.hash = this.dataset['language'];
+          window.location.reload();
+        });
 
         $(
           '#tblframeworks'
@@ -207,6 +220,22 @@
       font-size: 85%;
     }
 
+    .language-selectors {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 40px;
+      width: 80px;
+      z-index: 10000;
+    }
+
+    .language-selectors img {
+      width: 20px;
+      margin: 5px;
+      cursor: pointer;
+    }
+
     @media print {
       .print-hide {
         display: none;
@@ -226,9 +255,10 @@
 <body>
 <div class="social-share print-hide">
   <div class="ribbon-container">
-    <div class="ribbon"><a href="https://github.com/dainiak/lists">Contribute on GitHub</a></div>
+    <div class="ribbon"><a href="https://github.com/dainiak/lists" class="githublink">Contribute on GitHub</a></div>
   </div>
 </div>
+<div class="language-selectors" style="display: inline;"><img class="language-flag" data-language="en" src="img/en.svg" alt="english"><img class="language-flag" data-language="ru" src="img/ru.svg" alt="russian"></div>
 <div class="container fluid">
   <blockquote class="print-hide"><p class="kathy-sierra-quote"></p><footer><a href="http://seriouspony.com/blog/2013/10/4/presentation-skills-considered-harmful">Kathy Sierra</a></footer>
   </blockquote>
