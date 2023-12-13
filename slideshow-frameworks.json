@@ -5,7 +5,7 @@
     "desc_en": "One of the most fully-featured and actively developed frameworks. Powers <a href='https://slides.com/'>Slides.com</a>. The API is good, and there are many plugins available, see <a href='https://github.com/hakimel/reveal.js/wiki/Plugins,-Tools-and-Hardware'>достаточно много</a>.",
     "name": "Reveal.js",
     "src": "https://github.com/hakimel/reveal.js",
-    "lastupdate": "2023-04",
+    "lastupdate": "2023-12",
     "rating": 3
   },
   {
@@ -47,7 +47,7 @@
   {
     "demo": "https://inspirejs.org/",
     "desc_ru": "HTML+CSS+JS фреймворк для презентаций. Управление презентацией только с клавиатуры, зато поддреживает навигацию с помощью хоткеев.",
-    "desc_en": "",
+    "desc_en": "An HTML+CSS+JS framework for presentations, controlled exclusively via keyboard, supporting navigation with hotkeys.",
     "name": "Inspire.js",
     "src": "https://github.com/LeaVerou/inspire.js",
     "lastupdate": "2023-02",
@@ -65,7 +65,7 @@
   {
     "demo": "https://paulrouget.com/slides/dzslides-introduction.html",
     "desc_ru": "Шаблон для создания презентаций на HTML5. Идея данного проекта в том, что презентация должна представлять из себя единственный HTML (без дополнительных файлов), так что почти весь проект — это один файл с демонстрацией, в котором пользователь должен заменить контент на свой. Чтобы не ограничиваться концепцией одного файла, для презентаций существуют обёртки (shells), добавляющие информацию, видимую только докладчику, а также некоторые функции управления.",
-    "desc_en": "",
+    "desc_en": "A template for creating HTML5 presentations. The concept is that a presentation should be a single HTML file (without additional files), so almost the entire project is one demo file in which the user should replace the content with their own. To transcend the single-file concept, there are presentation wrappers (shells) that add information visible only to the speaker and some control functions.",
     "name": "DZSlides",
     "src": "https://github.com/paulrouget/dzslides",
     "lastupdate": "2017-10",
@@ -83,7 +83,7 @@
   {
     "demo": "https://markdalgleish.com/projects/bespoke.js/",
     "desc_ru": "Микро-фреймворк для создания презентаций. Требует установленного Node.js и использует Gulp в качестве сборщика плагина. Имеет некоторое количество <a href=\"https://github.com/bespokejs/bespoke/#official-plugins\">официальных</a> и <a href=\"https://www.npmjs.com/browse/keyword/bespoke-plugin\">не очень</a> плагинов.",
-    "desc_en": "",
+    "desc_en": "A micro-framework for creating presentations. Requires Node.js and uses Gulp as a plugin assembler. Has several <a href='https://github.com/bespokejs/bespoke/#official-plugins'>official</a> and <a href='https://www.npmjs.com/browse/keyword/bespoke-plugin'>other</a> plugins.",
     "name": "Bespoke.js",
     "src": "https://github.com/bespokejs/bespoke",
     "lastupdate": "2018-01",
@@ -101,10 +101,10 @@
   {
     "demo": "https://sli.dev/",
     "desc_ru": "Markdown-движок для создания презентаций, нацеленный на разработчиков.",
-    "desc_en": "",
+    "desc_en": "A Markdown engine for creating presentations, aimed at developers.",
     "name": "SliDev",
     "src": "https://github.com/slidevjs/slidev",
-    "lastupdate": "2023-05",
+    "lastupdate": "2023-12",
     "rating": 3
   },
   {
@@ -119,7 +119,7 @@
   {
     "demo": "https://shwr.me/#cover",
     "desc_ru": "Шаблон для создания презентаций написанный на HTML, CSS и Vanilla JS. Есть несколько готовых тем и небольшое количество <a href=\"https://github.com/shower/\">плагинов</a>. Есть возможность экспорта в PDF.",
-    "desc_en": "",
+    "desc_en": "A template for creating presentations written in HTML, CSS, and Vanilla JS. Features several ready-made themes and a small number of <a href='https://github.com/shower/'>plugins</a>. Offers the possibility of exporting to PDF.",
     "name": "Shower",
     "src": "https://github.com/shower/shower",
     "lastupdate": "2021-10",
@@ -128,7 +128,7 @@
   {
     "demo": "https://marcolago.github.io/flowtime.js/",
     "desc_ru": "Клон движка <span class=\"crossref\">reveal.js</span>.",
-    "desc_en": "",
+    "desc_en": "A clone of the <span class='crossref'>reveal.js</span> engine.",
     "name": "Flowtime.js",
     "src": "https://github.com/marcolago/flowtime.js",
     "lastupdate": "2022-12",
@@ -164,7 +164,7 @@
   {
     "demo": "",
     "desc_ru": "Простой плагин для создания HTML презентаций на Markdown и CSS. Есть подсветка синтаксиса для Ruby, JS, CSS и eRB. Поддерживает только горизонтальное перелистывание.",
-    "desc_en": "",
+    "desc_en": "A simple plugin for creating HTML presentations using Markdown and CSS. Supports syntax highlighting for Ruby, JS, CSS, and eRB. Only supports horizontal flipping.",
     "name": "Slidedown",
     "src": "https://github.com/nakajima/slidedown",
     "lastupdate": "2012-02",
@@ -173,7 +173,7 @@
   {
     "demo": "https://markdalgleish.com/projects/fathom/",
     "desc_ru": "JQuery плагин для создания презентаций на JavaScript. Больше не поддерживается, автор рекомендует использовать вместо него <span class=\"crossref\">Bespoke.js</span>",
-    "desc_en": "",
+    "desc_en": "A JQuery plugin for creating JavaScript presentations. No longer supported, the author recommends using <span class='crossref'>Bespoke.js</span> instead.",
     "name": "Fathom.js",
     "src": "https://github.com/markdalgleish/fathom",
     "lastupdate": "2015-08",
@@ -191,7 +191,7 @@
   {
     "demo": "https://bytasv.github.io/scriptless-slides",
     "desc_ru": "Proof-of-concept того, что можно создать полноценную презентацию на чистом CSS без javascript.",
-    "desc_en": "",
+    "desc_en": "A proof-of-concept demonstrating that a fully functional presentation can be created with pure CSS, without JavaScript.",
     "name": "scriptless-slides",
     "src": "https://github.com/bytasv/scriptless-slides",
     "lastupdate": "2013-01",
@@ -200,7 +200,7 @@
   {
     "demo": "https://cykod.github.io/CoderDeck",
     "desc_ru": "Шаблон для презентаций с live-coding вставками для обучения HTML, CSS и JS. Объединяет в себе Deck.js с подсветкой кода CodeMirror2.",
-    "desc_en": "",
+    "desc_en": "A template for presentations with live-coding inserts for teaching HTML, CSS, and JS. Combines Deck.js with CodeMirror2 code highlighting.",
     "name": "CoderDeck",
     "src": "https://github.com/cykod/CoderDeck",
     "lastupdate": "2012-09",
@@ -209,7 +209,7 @@
   {
     "demo": "",
     "desc_ru": "Фреймворк на JS+CSS. Плохо поддерживается и не рассчитан для публичного использования. Позволяет создавать презентации в виде набора кубов. Перелистывание возможно вращением текущего куба, либо переходом на другой куб. Позволяет вращать куб в любых направлениях и перепрыгивать по номеру грани.",
-    "desc_en": "",
+    "desc_en": "A JS+CSS framework that is poorly maintained and not intended for public use. Allows the creation of presentations in the form of a set of cubes. Flipping can be achieved by rotating the current cube or moving to another cube. Allows rotation in any direction and jumping to a specific face number.",
     "name": "3D Cube Slideshow",
     "src": "https://github.com/JoeMorgan/3D-Cube-Slideshow",
     "lastupdate": "2011-11",
@@ -218,7 +218,7 @@
   {
     "demo": "",
     "desc_ru": "Фреймворк для создания HTML презентаций с помощью Markdown. Написан на Python, нормальной документации не имеет.",
-    "desc_en": "",
+    "desc_en": "A framework for creating HTML presentations using Markdown. Written in Python, lacks proper documentation.",
     "name": "luminescence",
     "src": "https://github.com/pmatiello/luminescence",
     "lastupdate": "2011-07",
@@ -227,7 +227,7 @@
   {
     "demo": "https://www.w3.org/Talks/Tools/Slidy2/",
     "desc_ru": "Минималистичный фреймворк для презентаций от W3C",
-    "desc_en": "",
+    "desc_en": "A minimalist framework for presentations from W3C",
     "name": "Slidy2 (W3C slides toolkit)",
     "src": "https://www.w3.org/Talks/Tools/Slidy2/",
     "lastupdate": "2005-12",
@@ -236,7 +236,7 @@
   {
     "demo": "http://layerjs.org",
     "desc_ru": "Фреймворк для создания презентаций на HTML, CSS и JS. Контент презентаций группируется в различные фреймы, на странице определяется позиция для каждого фрейма, после чего определяется последовательность переходов по фреймам. Есть возможность создавать полноценные страницы с меню, всплывающими окнами и пр.",
-    "desc_en": "",
+    "desc_en": "A framework for creating HTML, CSS, and JS presentations. Presentation content is grouped into various frames, with a position defined for each frame on the page, followed by a sequence of transitions between frames. Allows for the creation of full pages with menus, pop-up windows, etc.",
     "name": "Layer.js",
     "src": "https://github.com/layerJS/layerJS",
     "lastupdate": "2020-10",
@@ -245,7 +245,7 @@
   {
     "demo": "http://johnpolacek.github.io/scrolldeck.js",
     "desc_ru": "Плагин для jQuery, позволяющий создавать скроллителлинг-презентации (в виде одной страницы, слайды на которой переключаются по мере прокрутки вниз).",
-    "desc_en": "",
+    "desc_en": "A jQuery plugin that allows for the creation of scroll-telling presentations (in the form of a single page, with slides switching as you scroll down).",
     "name": "ScrollDeck",
     "src": "https://github.com/johnpolacek/scrolldeck.js",
     "lastupdate": "2015-05",
@@ -254,7 +254,7 @@
   {
     "demo": "https://mbostock.github.io/stack",
     "desc_ru": "Фреймворк для скроллителлинг-презентаций (в виде одной страницы, слайды на которой переключаются по мере прокрутки вниз).",
-    "desc_en": "",
+    "desc_en": "A framework for scrollytelling presentations (in the form of a single page, with slides switching as you scroll down).",
     "name": "Stack.js",
     "src": "https://github.com/mbostock/stack",
     "lastupdate": "2014-09",
@@ -263,7 +263,7 @@
   {
     "demo": "https://tmcw-big-demo.glitch.me/#0",
     "desc_ru": "Фреймворк для создания презентаций на JS, CSS и HTML. Имеет JS API и возможность вывода заметок в developer console. Не имеет внешних зависимостей. Особенностью является то, что по-умолчанию фреймворк старается растягивать картинки и текст настолько, насколько возможно. Имеет <a href=\"https://github.com/tmcw/big/blob/gh-pages/COOKBOOK.md\">простое руководство</a> для быстрого старта.",
-    "desc_en": "",
+    "desc_en": "A framework for creating presentations in JS, CSS, and HTML. It has a JS API and the ability to output notes in the developer console. It has no external dependencies. A distinctive feature is that, by default, the framework tries to stretch images and text as much as possible. It has a [simple guide](https://github.com/tmcw/big/blob/gh-pages/COOKBOOK.md) for a quick start.",
     "name": "big",
     "src": "https://github.com/tmcw/big",
     "lastupdate": "2019-05",
