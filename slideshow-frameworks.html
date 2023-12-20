@@ -1,17 +1,20 @@
-<html>
+<html lang="">
 <head>
   <meta charset="utf-8">
   <title>List of HTML/CSS/JS Presentation Frameworks</title>
 
   <link rel="author" href="https://www.dainiak.com"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap-theme.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
 
+  <link rel="stylesheet" href="style.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
 
   <script type="text/javascript">
     let l10nAll = {
@@ -53,13 +56,14 @@
       $.getJSON( "slideshow-frameworks.json", function(frameworksJSON) {
         function localize(language) {
           let l10n = l10nAll[language];
-          for (let record of frameworksJSON)
+          for (let record of frameworksJSON) {
             record['desc'] = record['desc_' + language];
+          }
 
           document.title = l10n['title'];
 
           for(let col of ["name", "demo", "src", "lastupdate", "desc", "rating"])
-            $('[data-dynatable-column="' + col + '"]').text(l10n['col-' + col]);
+            $('th.' + col).text(l10n['col-' + col]);
 
           for(let p in l10n)
             $('.' + p).html(l10n[p]);
@@ -78,68 +82,79 @@
           window.location.reload();
         });
 
-        $(
-          '#tblframeworks'
-        ).bind(
-          'dynatable:init',
-          function (e, dynatable) {
-            dynatable.queries.functions['name'] = function (record, queryValue) {
-              let r = new RegExp(queryValue, 'i');
-              return (record.name.match(r) || record.desc.match(r) || record.lastupdate.match(r));
-            };
-          })
-        .dynatable({
-          dataset: {
-            records: frameworksJSON,
-            sorts: {'name': 1}
-          },
-          writers: {
-            _cellWriter: function (column, record) {
-              let result = '<td class="' + column.id + '">';
-              let value = record[column.id];
-              if (column.id === 'src') {
-                if(value)
-                  result += '<a class="btn btn-default print-hide" href="'
-                          + value
-                          + '"><i class="fa fa-' + (value.match(/github\./) ? 'github' : 'code')
-                          + '" aria-hidden="true"></i></a><span class="print-only">'
-                          + value + '</span>'
-                else
-                  result += '<i class="fa fa-times" aria-hidden="true"></i>';
+        $.fn.dataTable.ext.search.push(
+                function(settings, data) {
+                  let searchValue = $('#searchField').val().toLowerCase();
+                  let name = data[0].toLowerCase();
+                  let desc = data[5].toLowerCase();
+                  let lastupdate = data[3].toLowerCase();
+                  let r = new RegExp(searchValue);
+                  return (r.test(name) || r.test(desc) || r.test(lastupdate));
+                }
+        );
+
+        let data = [];
+        for (let record of frameworksJSON) {
+          data.push([
+            record['name'],
+            record['demo'],
+            record['src'],
+            record['lastupdate'],
+            record['rating'],
+            record['desc']
+          ]);
+        }
+
+        $.fn.dataTable.ext.type.order['rating-pre'] = function(data) {
+          return data && data.length || 0;
+        };
+        $.fn.dataTable.ext.type.order['ispresent-pre'] = function(data) {
+          return data && data.length && data.indexOf('fa-times') < 0 ? 1 : 0;
+        };
+
+        $('#tblframeworks').DataTable({
+          data: data,
+          // searching: false,
+          ordering: true,
+          order: [[4, 'desc'], [0, 'asc']],
+          paging: false,
+          info: false,
+          columnDefs: [
+            {orderable: true, targets: [0, 1, 2, 3, 4]},
+            {orderable: false, targets: -1},
+            {
+              targets: 'src',
+              type: 'ispresent',
+              render: function(data) {
+                if (data) {
+                  return '<a class="btn btn-default print-hide" href="' + data + '"><i class="' + (data.match(/github\./) ? 'fa-brands fa-github' : 'fa-solid fa-code') + '" aria-hidden="true"></i></a><span class="print-only">' + data + '</span>';
+                } else {
+                  return '<i class="fa fa-times" aria-hidden="true"></i>';
+                }
               }
-              else if (column.id === 'demo') {
-                if(value)
-                  result +=
-                          '<a class="btn btn-default print-hide" href="'
-                          + value
-                          + '"><i class="fa fa-television" aria-hidden="true"></i></a><span class="print-only">'
-                          + value
-                          + '</span>'
-                else
-                  result += '<i class="fa fa-times" aria-hidden="true"></i>';
+            },
+            {
+              targets: 'demo',
+              type: 'ispresent',
+              render: function(data) {
+                if (data) {
+                  return '<a class="btn btn-default print-hide" href="' + data + '"><i class="fa fa-television" aria-hidden="true"></i></a><span class="print-only">' + data + '</span>';
+                } else {
+                  return '<i class="fa fa-times" aria-hidden="true"></i>';
+                }
               }
-              else if (column.id === 'rating') {
-                if(value)
-                  result += '<i class="fa fa-star" aria-hidden="true"></i>'.repeat(parseInt(value));
-                else
-                  result += '';
+            },
+            {
+              targets: 'rating',
+              type: 'rating',
+              render: function(data) {
+                return data ? '<i class="fa fa-star" aria-hidden="true"></i>'.repeat(parseInt(data)) : '';
               }
-              else
-                result += value;
-              result += '</td>';
-              return result;
             }
-          },
-          features: {
-            paginate: false,
-            recordCount: false,
-            sort: true,
-            search: false
-          },
-          inputs: {
-            queries: $('#searchField'),
-            queryEvent: 'blur change keyup'
-          }
+          ]
+        });
+        $('#searchField').on('blur change keyup', function() {
+          $('#tblframeworks').DataTable().draw();
         });
 
         $('span.crossref').each(function (i, e) {
@@ -157,129 +172,65 @@
 
   </script>
 
-  <style>
-    .social-share {
-      position: absolute;
-      vertical-align: top;
-      top: 0;
-      right: 0;
-      border: 0;
-      z-index: 10000;
-    }
-
-    .social-share .ribbon-container {
-      position: absolute;
-      top: 0;
-      right: 0;
-      overflow: hidden;
-      width: 140px;
-      height: 140px;
-    }
-
-    .social-share .ribbon {
-      width: 200px;
-      text-align: center;
-      position: absolute;
-      background: grey;
-      border-top: black dashed 2px;
-      border-bottom: black dashed 2px;
-      color: whitesmoke;
-      top: 45px;
-      right: -45px;
-      z-index: 10000;
-      transform: rotate(45deg);
-    }
-
-    .social-share .ribbon a {
-      text-decoration: none;
-      color: whitesmoke;
-    }
-
-    #tblframeworks .desc a:not(.btn) {
-      color: inherit;
-      border-bottom: 2px cadetblue dotted;
-      text-decoration: inherit;
-    }
-
-    #tblframeworks .desc a:hover:not(.btn) {
-      color: inherit;
-      border-bottom: 2px cadetblue dotted;
-      text-decoration: inherit;
-      background-color: darkgrey;
-    }
-    #tblframeworks td.demo, #tblframeworks td.src, #tblframeworks td.lastupdate, #tblframeworks td.rating {
-      vertical-align: middle;
-      text-align: center;
-    }
-
-    #tblframeworks td.name {
-      vertical-align: middle;
-    }
-
-    .kathy-sierra-quote {
-      font-size: 85%;
-    }
-
-    .language-selectors {
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 40px;
-      width: 80px;
-      z-index: 10000;
-    }
-
-    .language-selectors img {
-      width: 20px;
-      margin: 5px;
-      cursor: pointer;
-    }
-
-    @media print {
-      .print-hide {
-        display: none;
-      }
-    }
-
-    @media screen {
-      .print-only {
-        display: none;
-      }
-    }
-  </style>
 
 </head>
 
 
 <body>
+<div class="language-selectors d-inline">
+  <img class="language-flag" data-language="en" src="img/en.svg" alt="English">
+  <img class="language-flag" data-language="ru" src="img/ru.svg" alt="Russian">
+</div>
+
 <div class="social-share print-hide">
   <div class="ribbon-container">
     <div class="ribbon"><a href="https://github.com/dainiak/lists" class="githublink">Contribute on GitHub</a></div>
   </div>
 </div>
-<div class="language-selectors" style="display: inline;"><img class="language-flag" data-language="en" src="img/en.svg" alt="english"><img class="language-flag" data-language="ru" src="img/ru.svg" alt="russian"></div>
-<div class="container fluid">
-  <blockquote class="print-hide"><p class="kathy-sierra-quote"></p><footer><a href="https://web.archive.org/web/20131005022239/https://seriouspony.com/blog/2013/10/4/presentation-skills-considered-harmful">Kathy Sierra</a></footer>
+
+<div class="container-fluid mt-4">
+  <blockquote class="blockquote print-hide">
+    <p class="mb-0 kathy-sierra-quote"></p>
+    <footer class="blockquote-footer mt-1">
+      <a href="https://web.archive.org/web/20131005022239/https://seriouspony.com/blog/2013/10/4/presentation-skills-considered-harmful">Kathy Sierra</a>
+    </footer>
   </blockquote>
-  <div class="input-group print-hide">
-    <span class="input-group-addon search-field">Search: </span>
-    <input type="text" class="form-control" id="searchField" name="name" placeholder="start typing here...">
+
+  <div class="input-group mb-3 print-hide">
+    <span class="input-group-text search-field">Search</span>
+    <input type="text" class="form-control" id="searchField" placeholder="start typing here…" aria-label="Search" aria-describedby="search-field">
   </div>
-  <table id="tblframeworks" class = "table table-striped table-bordered">
+
+  <table id="tblframeworks" class="table table-striped table-bordered" style="width: 100%">
     <thead>
-    <th data-dynatable-column="name">Framework</th>
-    <th data-dynatable-column="demo">Demo</th>
-    <th data-dynatable-column="src">Source</th>
-    <th data-dynatable-column="lastupdate">Last Updated</th>
-    <th data-dynatable-column="rating">Rating</th>
-    <th data-dynatable-column="desc" data-dynatable-no-sort="true">Description</th>
+    <tr>
+      <th class="name">Framework</th>
+      <th class="demo">Demo</th>
+      <th class="src">Source</th>
+      <th class="lastupdate">Last Updated</th>
+      <th class="rating">Rating</th>
+      <th class="desc">Description</th>
+    </tr>
     </thead>
     <tbody>
     </tbody>
   </table>
 </div>
-<footer class="footer"><div class="container"><span class="maintained-by"></span> <span class="contributor-credits"></span> <a href="https://github.com/taery">Anastasia Lavrenko</a>, Viktor Petukhov. <span class="print-hide"><span class="powered-by"></span> <a href="https://github.com/alfajango/jquery-dynatable">DynaTable</a>, <a href="https://jquery.com/">jQuery</a>, <a href="https://getbootstrap.com/">Bootstrap</a>, <a href="http://fontawesome.io/">Font Awesome</a>.</span></div></footer>
+
+<footer class="footer mt-auto py-3 bg-light">
+  <div class="container text-center">
+    <span class="maintained-by"></span>
+    <span class="contributor-credits"></span>
+    <a href="https://github.com/taery">Anastasia Lavrenko</a>, Viktor Petukhov.
+    <span class="print-hide">
+        <span class="powered-by"></span>
+        <a href="https://github.com/DataTables/DataTablesSrc">DataTables</a>,
+        <a href="https://jquery.com/">jQuery</a>,
+        <a href="https://getbootstrap.com/">Bootstrap</a>,
+        <a href="https://fontawesome.io/">Font Awesome</a>.
+      </span>
+  </div>
+</footer>
 </body>
 
 </html>
