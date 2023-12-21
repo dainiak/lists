@@ -28,6 +28,7 @@
         'col-rating': 'Rating',
         'search-field': 'Search',
         'search-field-placeholder': 'start typing here...',
+        'nothing-found': 'No matching records found',
         'powered-by': 'This webpage is powered by',
         'maintained-by': 'This list is maintained by <a href="https://www.dainiak.com" rel="author">Alex Dainiak</a> and contributors.',
         'kathy-sierra-quote': '…since I’m a software developer, I’ll think of the audience as my users. And if they’re my users, then this presentation is a user experience. And if it’s a user experience, then what am I? … I am just a UI … nothing more. And what’s a key attribute of a good UI? It disappears. It does not draw attention to itself. It enables the user experience, but is not itself the experience.',
@@ -44,6 +45,7 @@
         'col-desc': 'Описание',
         'search-field': 'Поиск',
         'search-field-placeholder': 'начните вводить запрос',
+        'nothing-found': 'По запросу ничего не найдено',
         'powered-by': 'На странице использованы библиотеки ',
         'maintained-by': 'Список скомпилирован и поддерживается <a href="https://www.dainiak.com" rel="author">Александром Дайняком</a> и соучастниками.',
         'kathy-sierra-quote': '… я разработчик, поэтому представляю себе свою аудиторию в качестве <em>пользователей</em>. А раз они мои пользователи, то моя <em>презентация — пользовательский опыт</em>. А раз это пользовательский опыт, то кто я такая? … Я интерфейс … не более. А что главное в хорошем интерфейсе? Он «прозрачен». Он не перетягивает внимание на себя. Он позволяет пользователю <em>получить опыт взаимодействия</em>, но сам по себе этим <em>опытом не является</em>.',
@@ -83,14 +85,14 @@
         });
 
         $.fn.dataTable.ext.search.push(
-                function(settings, data) {
-                  let searchValue = $('#searchField').val().toLowerCase();
-                  let name = data[0].toLowerCase();
-                  let desc = data[5].toLowerCase();
-                  let lastupdate = data[3].toLowerCase();
-                  let r = new RegExp(searchValue);
-                  return (r.test(name) || r.test(desc) || r.test(lastupdate));
-                }
+          function(settings, data) {
+            const searchValue = $('#searchField').val().toLowerCase();
+            const name = data[0].toLowerCase();
+            const desc = data[5].toLowerCase();
+            const lastUpdate = data[3].toLowerCase();
+            const r = new RegExp(searchValue);
+            return (r.test(name) || r.test(desc) || r.test(lastUpdate));
+          }
         );
 
         let data = [];
@@ -111,14 +113,31 @@
         $.fn.dataTable.ext.type.order['ispresent-pre'] = function(data) {
           return data && data.length && data.indexOf('fa-times') < 0 ? 1 : 0;
         };
+        const $table = $('#tblframeworks');
 
-        $('#tblframeworks').DataTable({
+        $table.on('draw.dt', function () {
+          $('#tblframeworks span.crossref').each(function (i, e) {
+            let $e = $(e);
+            let txt = e.textContent.trim().toLowerCase();
+            $e.wrap('<a></a>').click(function () {
+              $('td:first-child').each(function (j, td) {
+                if (td.textContent.trim().toLowerCase() === txt)
+                  td.scrollIntoView();
+              });
+            });
+          });
+        });
+
+        $table.DataTable({
           data: data,
-          // searching: false,
           ordering: true,
           order: [[4, 'desc'], [0, 'asc']],
           paging: false,
           info: false,
+          language: {
+            search: l10nAll[currentLanguage]['search-field'],
+            zeroRecords: l10nAll[currentLanguage]['nothing-found']
+          },
           columnDefs: [
             {orderable: true, targets: [0, 1, 2, 3, 4]},
             {orderable: false, targets: -1},
@@ -127,7 +146,7 @@
               type: 'ispresent',
               render: function(data) {
                 if (data) {
-                  return '<a class="btn btn-default print-hide" href="' + data + '"><i class="' + (data.match(/github\./) ? 'fa-brands fa-github' : 'fa-solid fa-code') + '" aria-hidden="true"></i></a><span class="print-only">' + data + '</span>';
+                  return '<a class="btn btn-default print-hide" href="' + data + '"><i class="' + (data.match(/github\./) ? 'fa-brands fa-github' : 'fa-solid fa-code') + '" aria-hidden="true"></i></a><a class="print-only" href="' + data + '">' + data + '</a>';
                 } else {
                   return '<i class="fa fa-times" aria-hidden="true"></i>';
                 }
@@ -138,7 +157,7 @@
               type: 'ispresent',
               render: function(data) {
                 if (data) {
-                  return '<a class="btn btn-default print-hide" href="' + data + '"><i class="fa fa-television" aria-hidden="true"></i></a><span class="print-only">' + data + '</span>';
+                  return '<a class="btn btn-default print-hide" href="' + data + '"><i class="fa fa-television" aria-hidden="true"></i></a><a class="print-only" href="' + data + '">' + data + '</a>';
                 } else {
                   return '<i class="fa fa-times" aria-hidden="true"></i>';
                 }
@@ -151,21 +170,10 @@
                 return data ? '<i class="fa fa-star" aria-hidden="true"></i>'.repeat(parseInt(data)) : '';
               }
             }
-          ]
+          ],
         });
         $('#searchField').on('blur change keyup', function() {
-          $('#tblframeworks').DataTable().draw();
-        });
-
-        $('span.crossref').each(function (i, e) {
-          let $e = $(e);
-          let txt = e.textContent.trim().toLowerCase();
-          $e.wrap('<a></a>').click(function () {
-            $('td.name').each(function (j, td) {
-              if (td.textContent.trim().toLowerCase() === txt)
-                td.scrollIntoView();
-            });
-          });
+          $table.DataTable().draw();
         });
       });
     });

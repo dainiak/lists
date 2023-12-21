@@ -45,18 +45,17 @@
     color: whitesmoke;
 }
 
-#tblframeworks .desc a:not(.btn) {
+#tblframeworks span.crossref {
     color: inherit;
     border-bottom: 2px cadetblue dotted;
     text-decoration: inherit;
+    cursor: pointer;
 }
 
-#tblframeworks .desc a:hover:not(.btn) {
-    color: inherit;
-    border-bottom: 2px cadetblue dotted;
-    text-decoration: inherit;
+#tblframeworks span.crossref:hover {
     background-color: darkgrey;
 }
+
 #tblframeworks th.demo, #tblframeworks th.src, #tblframeworks th.lastupdate, #tblframeworks th.rating {
     text-align: center;
 }
