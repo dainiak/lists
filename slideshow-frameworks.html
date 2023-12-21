@@ -1,30 +1,30 @@
 <html lang="">
 <head>
   <meta charset="utf-8">
-  <title>List of HTML/CSS/JS Presentation Frameworks</title>
+  <title>HTML/CSS/JS Presentation Frameworks</title>
 
   <link rel="author" href="https://www.dainiak.com"/>
 
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
 
   <link rel="stylesheet" href="style.css" />
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
 
   <script type="text/javascript">
     let l10nAll = {
       'en': {
-        'title': 'List of HTML/CSS/JS Presentation Frameworks',
+        'title': 'HTML/CSS/JS Presentation Frameworks',
         'col-name': 'Framework',
         'col-demo': 'Demo',
         'col-src': 'Source',
         'col-desc': 'Description',
-        'col-lastupdate': 'Last update',
+        'col-lastupdate': 'Updated',
         'col-rating': 'Rating',
         'search-field': 'Search',
         'search-field-placeholder': 'start typing here...',
@@ -36,11 +36,11 @@
         'githublink': 'Contribute on GitHub'
       },
       'ru': {
-        'title': 'Каталог HTML/CSS/JS-движков для создания презентаций',
+        'title': 'HTML/CSS/JS-движки для создания презентаций',
         'col-name': 'Движок',
         'col-demo': 'Демонстрация/сайт',
-        'col-src': 'Исходный код',
-        'col-lastupdate': 'Обновлено',
+        'col-src': 'Исходники',
+        'col-lastupdate': 'Обновление',
         'col-rating': 'Рейтинг',
         'col-desc': 'Описание',
         'search-field': 'Поиск',
@@ -48,7 +48,7 @@
         'nothing-found': 'По запросу ничего не найдено',
         'powered-by': 'На странице использованы библиотеки ',
         'maintained-by': 'Список скомпилирован и поддерживается <a href="https://www.dainiak.com" rel="author">Александром Дайняком</a> и соучастниками.',
-        'kathy-sierra-quote': '… я разработчик, поэтому представляю себе свою аудиторию в качестве <em>пользователей</em>. А раз они мои пользователи, то моя <em>презентация — пользовательский опыт</em>. А раз это пользовательский опыт, то кто я такая? … Я интерфейс … не более. А что главное в хорошем интерфейсе? Он «прозрачен». Он не перетягивает внимание на себя. Он позволяет пользователю <em>получить опыт взаимодействия</em>, но сам по себе этим <em>опытом не является</em>.',
+        'kathy-sierra-quote': '… я разработчик, поэтому представляю свою аудиторию <em>пользователями</em>. А раз они мои пользователи, то <em>моя презентация — их пользовательский опыт</em>. А раз это пользовательский опыт, то кто я такая? … Я интерфейс … не более. А что главное в хорошем интерфейсе? То, что он «прозрачен». Он не перетягивает внимание на себя. Он позволяет пользователю <em>получить опыт взаимодействия</em>, но сам по себе этим <em>опытом не является</em>.',
         'contributor-credits': 'Большую помощь в пополнении списка и описаний оказали ',
         'githublink': 'Есть дополнения?'
       }
@@ -146,7 +146,8 @@
               type: 'ispresent',
               render: function(data) {
                 if (data) {
-                  return '<a class="btn btn-default print-hide" href="' + data + '"><i class="' + (data.match(/github\./) ? 'fa-brands fa-github' : 'fa-solid fa-code') + '" aria-hidden="true"></i></a><a class="print-only" href="' + data + '">' + data + '</a>';
+                  const icon = data.match(/github\./) ? 'fa-brands fa-github' : 'fa-solid fa-code';
+                  return `<a class="btn btn-outline-secondary print-hide" href="${data}"><i class="${icon}" aria-hidden="true"></i></a><a class="print-only" href="${data}">${data}</a>`;
                 } else {
                   return '<i class="fa fa-times" aria-hidden="true"></i>';
                 }
@@ -157,7 +158,7 @@
               type: 'ispresent',
               render: function(data) {
                 if (data) {
-                  return '<a class="btn btn-default print-hide" href="' + data + '"><i class="fa fa-television" aria-hidden="true"></i></a><a class="print-only" href="' + data + '">' + data + '</a>';
+                  return `<a class="btn btn-outline-secondary print-hide" href="${data}"><i class="fa fa-television" aria-hidden="true"></i></a><a class="print-only" href="${data}">${data}</a>`;
                 } else {
                   return '<i class="fa fa-times" aria-hidden="true"></i>';
                 }
@@ -185,6 +186,8 @@
 
 
 <body>
+<header class="bg-light py-3"><h1 class="text-center title">HTML/CSS/JS Presentation Frameworks</h1></header>
+
 <div class="language-selectors d-inline">
   <img class="language-flag" data-language="en" src="img/en.svg" alt="English">
   <img class="language-flag" data-language="ru" src="img/ru.svg" alt="Russian">
@@ -215,7 +218,7 @@
       <th class="name">Framework</th>
       <th class="demo">Demo</th>
       <th class="src">Source</th>
-      <th class="lastupdate">Last Updated</th>
+      <th class="lastupdate">Updated</th>
       <th class="rating">Rating</th>
       <th class="desc">Description</th>
     </tr>
