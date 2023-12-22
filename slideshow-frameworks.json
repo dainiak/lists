@@ -243,7 +243,7 @@
     "rating": 2
   },
   {
-    "demo": "http://johnpolacek.github.io/scrolldeck.js",
+    "demo": "https://johnpolacek.github.io/scrolldeck.js",
     "desc_ru": "Плагин для jQuery, позволяющий создавать скроллителлинг-презентации (в виде одной страницы, слайды на которой переключаются по мере прокрутки вниз).",
     "desc_en": "A jQuery plugin that allows for the creation of scroll-telling presentations (in the form of a single page, with slides switching as you scroll down).",
     "name": "ScrollDeck",

@@ -38,7 +38,7 @@
       'ru': {
         'title': 'HTML/CSS/JS-движки для создания презентаций',
         'col-name': 'Движок',
-        'col-demo': 'Демонстрация/сайт',
+        'col-demo': 'Демо',
         'col-src': 'Исходники',
         'col-lastupdate': 'Обновление',
         'col-rating': 'Рейтинг',
@@ -73,19 +73,19 @@
           document.getElementById('searchField').setAttribute('placeholder', l10n['search-field-placeholder']);
         }
 
-        let currentLanguage = navigator.languages.indexOf('ru') >= 0 ? 'ru' : 'en';
+        let currentLanguage = navigator.languages.includes('ru') ? 'ru' : 'en';
         if(window.location.hash === '#ru')
           currentLanguage = 'ru';
         else if (window.location.hash === '#en')
           currentLanguage = 'en';
         localize(currentLanguage);
-        $('img[data-language]').click(function(){
-          window.location.hash = this.dataset['language'];
+        $('img[data-language]').click((e) => {
+          window.location.hash = e.target.dataset['language'];
           window.location.reload();
         });
 
         $.fn.dataTable.ext.search.push(
-          function(settings, data) {
+          (settings, data) => {
             const searchValue = $('#searchField').val().toLowerCase();
             const name = data[0].toLowerCase();
             const desc = data[5].toLowerCase();
@@ -96,7 +96,7 @@
         );
 
         let data = [];
-        for (let record of frameworksJSON) {
+        frameworksJSON.forEach(record => {
           data.push([
             record['name'],
             record['demo'],
@@ -105,25 +105,19 @@
             record['rating'],
             record['desc']
           ]);
-        }
+        });
 
-        $.fn.dataTable.ext.type.order['rating-pre'] = function(data) {
-          return data && data.length || 0;
-        };
-        $.fn.dataTable.ext.type.order['ispresent-pre'] = function(data) {
-          return data && data.length && data.indexOf('fa-times') < 0 ? 1 : 0;
-        };
+        $.fn.dataTable.ext.type.order['rating-pre'] = (data) => data && data.length || 0;
+        $.fn.dataTable.ext.type.order['ispresent-pre'] = (data) => data && data.length && data.includes('fa-times') ? 0 : 1;
+
         const $table = $('#tblframeworks');
 
-        $table.on('draw.dt', function () {
-          $('#tblframeworks span.crossref').each(function (i, e) {
+        $table.on('draw.dt', () => {
+          $('#tblframeworks span.crossref').each((_, e) => {
             let $e = $(e);
             let txt = e.textContent.trim().toLowerCase();
-            $e.wrap('<a></a>').click(function () {
-              $('td:first-child').each(function (j, td) {
-                if (td.textContent.trim().toLowerCase() === txt)
-                  td.scrollIntoView();
-              });
+            $e.wrap('<a></a>').click(() => {
+              $('td:first-child').each((_, td) => td.textContent.trim().toLowerCase() === txt && td.scrollIntoView());
             });
           });
         });
@@ -144,7 +138,7 @@
             {
               targets: 'src',
               type: 'ispresent',
-              render: function(data) {
+              render: (data) => {
                 if (data) {
                   const icon = data.match(/github\./) ? 'fa-brands fa-github' : 'fa-solid fa-code';
                   return `<a class="btn btn-outline-secondary print-hide" href="${data}"><i class="${icon}" aria-hidden="true"></i></a><a class="print-only" href="${data}">${data}</a>`;
@@ -156,7 +150,7 @@
             {
               targets: 'demo',
               type: 'ispresent',
-              render: function(data) {
+              render: (data) => {
                 if (data) {
                   return `<a class="btn btn-outline-secondary print-hide" href="${data}"><i class="fa fa-television" aria-hidden="true"></i></a><a class="print-only" href="${data}">${data}</a>`;
                 } else {
@@ -167,15 +161,11 @@
             {
               targets: 'rating',
               type: 'rating',
-              render: function(data) {
-                return data ? '<i class="fa fa-star" aria-hidden="true"></i>'.repeat(parseInt(data)) : '';
-              }
+              render: (data) => data ? '<i class="fa fa-star" aria-hidden="true"></i>'.repeat(parseInt(data)) : ''
             }
           ],
         });
-        $('#searchField').on('blur change keyup', function() {
-          $table.DataTable().draw();
-        });
+        $('#searchField').on('blur change keyup', () => $table.DataTable().draw());
       });
     });
 
