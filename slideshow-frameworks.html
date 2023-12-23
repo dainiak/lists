@@ -116,8 +116,8 @@
           $('#tblframeworks span.crossref').each((_, e) => {
             let $e = $(e);
             let txt = e.textContent.trim().toLowerCase();
-            $e.wrap('<a></a>').click(() => {
-              $('td:first-child').each((_, td) => td.textContent.trim().toLowerCase() === txt && td.scrollIntoView());
+            $e.click(() => {
+              $('td:first-child').each((_, td) => {td.textContent.trim().toLowerCase() === txt && td.scrollIntoView()});
             });
           });
         });
