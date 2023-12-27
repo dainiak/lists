@@ -1,8 +1,8 @@
 [
   {
     "demo": "https://revealjs.com/",
-    "desc_ru": "Один из наиболее богатых по функционалу и регулярно обновляемых движков. Лежащий в основе сервиса <a href=\"https://slides.com/\">Slides.com</a>. Поддерживает плагины, которых накопилось уже <a href=\"https://github.com/hakimel/reveal.js/wiki/Plugins,-Tools-and-Hardware\">достаточно много</a>.",
-    "desc_en": "One of the most fully-featured and actively developed frameworks. Powers <a href=\"https://slides.com/\">Slides.com</a>. The API is good, and there are many <a href=\"https://github.com/hakimel/reveal.js/wiki/Plugins,-Tools-and-Hardware\">plugins</a> available.",
+    "desc_ru": "Один из наиболее богатых по функционалу и регулярно обновляемых движков. Лежащий в основе сервиса <a href=\"https://slides.com/\">Slides.com</a>. Поддерживает плагины, которых накопилось уже <a href=\"https://github.com/hakimel/reveal.js/wiki/Plugins,-Tools-and-Hardware\">достаточно много</a>. Есть также расширения для <a href=\"https://github.com/jupyterlab-contrib/rise\">Jupyter Lab</a> и для <a href=\"https://rise.readthedocs.io/\">Jupyter Notebook</a> (последнее устаревшее), которые позволяют демонстрировать ipynb-файлы в виде reveal.js презентаций.",
+    "desc_en": "One of the most fully-featured and actively developed frameworks. Powers <a href=\"https://slides.com/\">Slides.com</a>. The API is good, and there are many <a href=\"https://github.com/hakimel/reveal.js/wiki/Plugins,-Tools-and-Hardware\">plugins</a> available. There are also <a href=\"https://github.com/jupyterlab-contrib/rise\">Jupyter Lab</a> and <a href=\"https://rise.readthedocs.io/\">Jupyter Notebook</a> extensions (the latter is deprecated) allowing to view ipynb files as reveal.js slideshows.",
     "name": "Reveal.js",
     "src": "https://github.com/hakimel/reveal.js",
     "lastupdate": "2023-12",
