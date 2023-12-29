@@ -1,4 +1,4 @@
-$(function () {
+$(() => {
     let l10nAll = {
         'en': {
             'col-demo': 'Demo',
@@ -35,13 +35,13 @@ $(function () {
         }
     };
 
-    function getCurrentLanguage() {
+    const getCurrentLanguage = () => {
         if (window.location.hash === '#ru') return 'ru';
         if (window.location.hash === '#en') return 'en';
         return navigator.languages.includes('ru') ? 'ru' : 'en';
     }
 
-    function localize(language) {
+    const localize = (language) => {
         const l10n = l10nAll[language];
         document.title = l10n['title'];
         ['name', 'demo', 'src', 'lastupdate', 'desc', 'rating'].forEach(col => $(`th.${col}`).text(l10n[`col-${col}`]));
@@ -49,7 +49,7 @@ $(function () {
         $('#searchField').attr('placeholder', l10n['search-field-placeholder']);
     }
 
-    function getColumnDefs() {
+    const getColumnDefs = () => {
         return [
             {
                 targets: [0, 1, 2, 3, 4], orderable: true
@@ -75,7 +75,7 @@ $(function () {
         }]
     }
 
-    function setupEventHandlers() {
+    const setupEventHandlers = () => {
         $('img[data-language]').click(e => {
             window.location.hash = e.target.dataset['language'];
             window.location.reload();
@@ -100,7 +100,7 @@ $(function () {
         $(btn).on('click', () => document.body.scrollTop = document.documentElement.scrollTop = 0);
     }
 
-    function initializeDataTable(frameworksJSON, currentLanguage) {
+    const initializeDataTable = (frameworksJSON, currentLanguage) => {
         $.fn.dataTable.ext.search.push((settings, data) => {
             const searchValue = $('#searchField').val().toLowerCase();
             const name = data[0].toLowerCase();
@@ -128,7 +128,7 @@ $(function () {
         });
     }
 
-    $.getJSON("data/slideshow-frameworks.json", function (frameworksJSON) {
+    $.getJSON("data/slideshow-frameworks.json", (frameworksJSON) => {
         const currentLanguage = getCurrentLanguage();
         localize(currentLanguage);
         setupEventHandlers();
