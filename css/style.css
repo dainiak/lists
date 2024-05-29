@@ -107,3 +107,12 @@
 .dataTables_filter {
     display: none;
 }
+
+#scrollToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    display: none;
+}
