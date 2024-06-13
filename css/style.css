@@ -116,3 +116,7 @@
     height: 40px;
     display: none;
 }
+
+#tblframeworks_wrapper > div:first-child {
+    display: none;
+}
