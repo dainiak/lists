@@ -99,9 +99,9 @@
     "rating": 1
   },
   {
-    "demo": "https://sli.dev/",
-    "desc_ru": "Markdown-движок для создания презентаций, нацеленный на разработчиков.",
-    "desc_en": "A Markdown engine for creating presentations, aimed at developers.",
+    "demo": "https://sli.dev",
+    "desc_ru": "Markdown-движок для создания презентаций, нацеленный на разработчиков. Есть <a href=\"https://marketplace.visualstudio.com/items?itemName=antfu.slidev\">плагин для VS Code</a>.",
+    "desc_en": "A Markdown engine for creating presentations, aimed at developers. Has an <a href=\"https://marketplace.visualstudio.com/items?itemName=antfu.slidev\">extension for VS Code</a>.",
     "name": "SliDev",
     "src": "https://github.com/slidevjs/slidev",
     "lastupdate": "2023-12",

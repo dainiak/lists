@@ -36,8 +36,8 @@ $(() => {
     };
 
     const getCurrentLanguage = () => {
-        if (window.location.hash === '#ru') return 'ru';
-        if (window.location.hash === '#en') return 'en';
+        if (['#ru', '#en'].includes(window.location.hash))
+            return window.location.hash.slice(1);
         return navigator.languages.includes('ru') ? 'ru' : 'en';
     }
 
@@ -93,7 +93,7 @@ $(() => {
 
         $('#searchField').on('blur change keyup', () => $table.DataTable().draw());
 
-        let btn = document.getElementById('scrollToTop');
+        const btn = document.getElementById('scrollToTop');
         window.addEventListener('scroll', () => {
             btn.style.display = document.body.scrollTop > 20 || document.documentElement.scrollTop > 20 ? 'block' : 'none';
         });
@@ -127,6 +127,8 @@ $(() => {
             columnDefs: getColumnDefs()
         });
     }
+
+    document.body.setAttribute("data-bs-theme", window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light");
 
     $.getJSON("data/slideshow-frameworks.json", (frameworksJSON) => {
         const currentLanguage = getCurrentLanguage();
