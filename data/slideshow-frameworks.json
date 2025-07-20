@@ -189,7 +189,7 @@
     "rating": 1
   },
   {
-    "demo": "https://bytasv.github.io/scriptless-slides",
+    "demo": "https://web.archive.org/web/20230330103353/https://bytasv.github.io/scriptless-slides/",
     "desc_ru": "Proof-of-concept того, что можно создать полноценную презентацию на чистом CSS без javascript.",
     "desc_en": "A proof-of-concept demonstrating that a fully functional presentation can be created with pure CSS, without JavaScript.",
     "name": "scriptless-slides",
@@ -261,7 +261,7 @@
     "rating": 2
   },
   {
-    "demo": "https://tmcw-big-demo.glitch.me/#0",
+    "demo": "",
     "desc_ru": "Фреймворк для создания презентаций на JS, CSS и HTML. Имеет JS API и возможность вывода заметок в developer console. Не имеет внешних зависимостей. Особенностью является то, что по-умолчанию фреймворк старается растягивать картинки и текст настолько, насколько возможно. Имеет <a href=\"https://github.com/tmcw/big/blob/gh-pages/COOKBOOK.md\">простое руководство</a> для быстрого старта.",
     "desc_en": "A framework for creating presentations in JS, CSS, and HTML. It has a JS API and the ability to output notes in the developer console. It has no external dependencies. A distinctive feature is that, by default, the framework tries to stretch images and text as much as possible. It has a <a href=\"https://github.com/tmcw/big/blob/gh-pages/COOKBOOK.md\",>simple guide</a> for a quick start.",
     "name": "big",
