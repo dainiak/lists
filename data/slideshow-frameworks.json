@@ -5,7 +5,7 @@
     "desc_en": "One of the most fully-featured and actively developed frameworks. Powers <a href=\"https://slides.com/\">Slides.com</a>. The API is good, and there are many <a href=\"https://github.com/hakimel/reveal.js/wiki/Plugins,-Tools-and-Hardware\">plugins</a> available. There are also <a href=\"https://github.com/jupyterlab-contrib/rise\">Jupyter Lab</a> and <a href=\"https://rise.readthedocs.io/\">Jupyter Notebook</a> extensions (the latter is deprecated) allowing to view ipynb files as reveal.js slideshows.",
     "name": "Reveal.js",
     "src": "https://github.com/hakimel/reveal.js",
-    "lastupdate": "2023-12",
+    "lastupdate": "2026-02",
     "rating": 3
   },
   {
@@ -14,7 +14,7 @@
     "desc_en": "Allows to typeset slides in <a href=\"https://daringfireball.net/projects/markdown/\">Markdown</a>.",
     "name": "remark",
     "src": "https://github.com/gnab/remark",
-    "lastupdate": "2020-01",
+    "lastupdate": "2023-06",
     "rating": 1
   },
   {
@@ -32,7 +32,7 @@
     "desc_en": "The content may be positioned in 2D and even 3D space and navigated using CSS transitions. The style of the resulting presentations resembles that of <a href=\"https://prezi.com/\">Prezi</a>.",
     "name": "impress.js",
     "src": "https://github.com/impress/impress.js",
-    "lastupdate": "2023-02",
+    "lastupdate": "2025-09",
     "rating": 3
   },
   {
@@ -50,7 +50,7 @@
     "desc_en": "An HTML+CSS+JS framework for presentations, controlled exclusively via keyboard, supporting navigation with hotkeys.",
     "name": "Inspire.js",
     "src": "https://github.com/LeaVerou/inspire.js",
-    "lastupdate": "2023-02",
+    "lastupdate": "2025-11",
     "rating": 2
   },
   {
@@ -77,7 +77,7 @@
     "desc_en": "",
     "name": "landslide",
     "src": "https://github.com/adamzap/landslide",
-    "lastupdate": "2023-03",
+    "lastupdate": "2023-12",
     "rating": 1
   },
   {
@@ -86,7 +86,7 @@
     "desc_en": "A micro-framework for creating presentations. Requires Node.js and uses Gulp as a plugin assembler. Has several <a href=\"https://github.com/bespokejs/bespoke/#official-plugins\">official</a> and <a href=\"https://www.npmjs.com/browse/keyword/bespoke-plugin\">other</a> plugins.",
     "name": "Bespoke.js",
     "src": "https://github.com/bespokejs/bespoke",
-    "lastupdate": "2018-01",
+    "lastupdate": "2020-09",
     "rating": 1
   },
   {
@@ -104,7 +104,7 @@
     "desc_en": "A Markdown engine for creating presentations, aimed at developers. Has an <a href=\"https://marketplace.visualstudio.com/items?itemName=antfu.slidev\">extension for VS Code</a>.",
     "name": "SliDev",
     "src": "https://github.com/slidevjs/slidev",
-    "lastupdate": "2023-12",
+    "lastupdate": "2026-02",
     "rating": 3
   },
   {
@@ -122,7 +122,7 @@
     "desc_en": "A template for creating presentations written in HTML, CSS, and Vanilla JS. Features several ready-made themes and a small number of <a href=\"https://github.com/shower/\">plugins</a>. Offers the possibility of exporting to PDF.",
     "name": "Shower",
     "src": "https://github.com/shower/shower",
-    "lastupdate": "2021-10",
+    "lastupdate": "2024-10",
     "rating": 2
   },
   {
@@ -131,7 +131,7 @@
     "desc_en": "A clone of the <span class=\"crossref\">reveal.js</span> engine.",
     "name": "Flowtime.js",
     "src": "https://github.com/marcolago/flowtime.js",
-    "lastupdate": "2022-12",
+    "lastupdate": "2026-01",
     "rating": 2
   },
   {
@@ -266,7 +266,7 @@
     "desc_en": "A framework for creating presentations in JS, CSS, and HTML. It has a JS API and the ability to output notes in the developer console. It has no external dependencies. A distinctive feature is that, by default, the framework tries to stretch images and text as much as possible. It has a <a href=\"https://github.com/tmcw/big/blob/gh-pages/COOKBOOK.md\",>simple guide</a> for a quick start.",
     "name": "big",
     "src": "https://github.com/tmcw/big",
-    "lastupdate": "2019-05",
+    "lastupdate": "2025-11",
     "rating": 2
   }
 ]
